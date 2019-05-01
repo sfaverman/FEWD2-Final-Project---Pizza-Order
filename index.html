@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order - Form</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+ <header>
+     <img src="images/pizza-145179_640.png" alt="logo">
+     <h1>Sofia's Pizza</h1>
+ </header>
+ <section id="container">
+     <p>&nbsp;</p>
+     <main id="wrapper">
+      <h1>Order pizza</h1>
+      <p>Build a pizza you'd like to order. Start with the personal information that the delivery man will use to deliver your pizza, method of payment and we wil provide you with an estimated total.</p>
+      <form action="" id="cart-water" class="cart">
+            <article class="item">
+                <h2>Delivery Location</h2>
+                <p>Please enter your name and address:</p>
+
+                <label for="name">Name*:</label>
+                <input type="text" id="name" name="name" autofocus>
+                <label for="a-type">Address Type:</label>
+                    <select name="a-type" id="a-type">
+                        <option value="">-select</option>
+                        <option value="H">House</option>
+                        <option value="A">Apartment</option>
+                        <option value="B">Business</option>
+                        <option value="C">Campus</option>
+                        <option value="H">Hotel</option>
+                        <option value="D">Dorm</option>
+                        <option value="O">Other</option>
+                    </select>
+                <label for="street">Street name*:</label>
+                <input type="text" id="street" name="street" >
+                <ul>
+                    <li>
+                        <label for="city">City*:</label>
+                        <input type="text" id="city" name="city">
+                    </li>
+                    <li>
+                        <!--<label for="street">State*:</label>
+                        <input type="text" id="street" name="street">-->
+
+                        <label for="s-state">State:</label>
+                        <select name="s-state" id="s-state">
+                            <option value="">-select</option>
+                            <option value="CA">CA</option>
+                            <option value="WA">WA</option>
+                            <option value="OR">OR</option>
+                            <option value="AZ">AZ</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="zip">ZipCode*:</label>
+                        <input type="text" id="zip" name="zip">
+                    </li>
+                </ul>
+
+                <label for="email">Email*:</label>
+                <input type="email" id="email" name="email" placeholder="name@url.com">
+
+
+                <label for="phone">Phone*:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+                <p class="note">* indicated required field</p>
+
+            </article>
+            <article class="item">
+                <h2>Build your order</h2>
+                <p>Cool and refreshing, perfect on a summer day</p>
+                <div class="info"><span>Price: $8/bottle</span></div>
+                <div class="order">
+                    <label for="txt-q-cm">Quantity desired:</label>
+                    <input type="text" size="3" placeholder="0" id="txt-q-cm"></div>
+            </article>
+
+            <artcile id="state">
+                <h2>Select your shipping state:</h2>
+                <div class="group state">
+                    <label for="s-state">state:</label>
+                    <select name="s-state" id="s-state">
+                        <option value="">-select</option>
+                        <option value="CA">CA</option>
+                        <option value="WA">WA</option>
+                        <option value="OR">OR</option>
+                        <option value="AZ">AZ</option>
+                    </select>
+                </div>
+                <div class="group method">
+                        <label for="shipping-method">Shipping Method</label>
+                        <br>
+                        <input type="radio" name="r_method" value="pickup" id="r-method-pickup">
+                        <label for="r-method-pickup">Pickup free</label>
+                        <br>
+                        <input type="radio" name="r_method" value="usps" id="r-method-usps">
+                        <label for="r-method-usps">US mail ($2/bottle)</label>
+                        <br>
+                        <input type="radio" name="r_method" value="ups" id="r-method-ups">
+                        <label for="r-method-ups">UPS ($3/bottle)</label>
+                </div>
+
+                 <div class="group calc">
+                    <p>
+                        <label for="btn-estimate">Click to estimate:</label>
+                        <input type="submit" id="btn-estimate" value="Estimate total">
+                        <input type="text" placeholder="$0.00" id="txt-estimate">
+                    </p>
+                    <div id="results"></div>
+                </div>
+            </artcile>
+            <artcile id="state">
+                <h2>Special notes</h2>
+                 <label for="msg">Comments</label>
+                 <textarea name="message" id="msg" placeholder="please write your message here"></textarea>
+
+            </artcile>
+            <article class="formBtn">
+                <input type="submit" class="button" value="Order!">
+                <input type="reset" class="button">
+            </article>
+     </form>
+     </main>
+ </section>
+
+</body>
+</html>

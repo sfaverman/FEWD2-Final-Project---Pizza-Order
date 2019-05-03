@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Order - Form</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script src="js/script.js" type="text/javascript" defer></script>
 </head>
 <body>
  <header>
@@ -42,16 +43,13 @@
                         <input type="text" id="city" name="city">
                     </li>
                     <li>
-                        <!--<label for="street">State*:</label>
-                        <input type="text" id="street" name="street">-->
-
                         <label for="s-state">State:</label>
                         <select name="s-state" id="s-state">
                             <option value="">-select</option>
-                            <option value="CA">CA</option>
-                            <option value="WA">WA</option>
-                            <option value="OR">OR</option>
-                            <option value="AZ">AZ</option>
+                            <option value="CA">California</option>
+                            <option value="WA">Washington</option>
+                            <option value="OR">Oregon</option>
+                            <option value="AZ">Arizona</option>
                         </select>
                     </li>
                     <li>
@@ -121,7 +119,7 @@
                  <label for="o-sauce">Sauce options:</label>
                     <select name="o-cheeze" id="o-cheeze">
                         <option value="">-select</option>
-                        <option value="REG">RegularTomato ($0.00)</option>
+                        <option value="REG">Regular Tomato ($0.00)</option>
                         <option value="HEARTY">Hearty Tomato ($0.99)</option>
                         <option value="BBQ">BBQ Sauce ($1.99)</option>
                     </select>

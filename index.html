@@ -15,9 +15,9 @@
      <p>&nbsp;</p>
      <main id="wrapper">
       <h1>Order pizza</h1>
-      <p>Build a pizza you'd like to order. Start with the personal information that the delivery man will use to deliver your pizza, method of payment and we wil provide you with an estimated total.</p>
-      <form action="" id="cart-water" class="cart">
-            <article class="item">
+      <p>Build a pizza you'd like to order. Start with the personal information that the delivery man will use to deliver your pizza, choose from variety options and we wil provide you with an estimated total.</p>
+      <form action="" id="pizza-form">
+            <article>
                 <h2>Delivery Location</h2>
                 <p>Please enter your name and address:</p>
 
@@ -70,55 +70,142 @@
                 <p class="note">* indicated required field</p>
 
             </article>
-            <article class="item">
+            <article>
                 <h2>Build your order</h2>
-                <p>Cool and refreshing, perfect on a summer day</p>
-                <div class="info"><span>Price: $8/bottle</span></div>
-                <div class="order">
-                    <label for="txt-q-cm">Quantity desired:</label>
-                    <input type="text" size="3" placeholder="0" id="txt-q-cm"></div>
+                <p>You Make It - We Bake It. The Best custom built pizza restaurant all over San Diego Area.</p>
             </article>
 
-            <artcile id="state">
-                <h2>Select your shipping state:</h2>
-                <div class="group state">
-                    <label for="s-state">state:</label>
-                    <select name="s-state" id="s-state">
-                        <option value="">-select</option>
-                        <option value="CA">CA</option>
-                        <option value="WA">WA</option>
-                        <option value="OR">OR</option>
-                        <option value="AZ">AZ</option>
-                    </select>
-                </div>
-                <div class="group method">
-                        <label for="shipping-method">Shipping Method</label>
+            <artcile>
+                <h2>Choose your crust</h2>
+
+                <div>
+                        <label for="r-dough-hand">Hand Tossed</label>
                         <br>
-                        <input type="radio" name="r_method" value="pickup" id="r-method-pickup">
-                        <label for="r-method-pickup">Pickup free</label>
+                        <input type="radio" name="r_dough" value="hand" id="r-dough-hand">
+
+                        <label for="r-dough-thin">Thin Crust</label>
                         <br>
-                        <input type="radio" name="r_method" value="usps" id="r-method-usps">
-                        <label for="r-method-usps">US mail ($2/bottle)</label>
+                        <input type="radio" name="r_dough" value="thin" id="r-dough-thin">
+
+                        <label for="r-dough-nys">New York Style</label>
                         <br>
-                        <input type="radio" name="r_method" value="ups" id="r-method-ups">
-                        <label for="r-method-ups">UPS ($3/bottle)</label>
+                        <input type="radio" name="r_dough" value="nys" id="r-dough-nys">
+
+                        <label for="r-dough-gluten">Gluten Free</label>
+                        <br>
+                        <input type="radio" name="r_dough" value="gluten" id="r-dough-gluten">
                 </div>
 
-                 <div class="group calc">
+
+            </artcile>
+            <article>
+                <h2>Choose pizza size, cheese and sauce</h2>
+                <p>Please enter the size of pizza:</p>
+
+                <label for="p-size">Pizza size:</label>
+                    <select name="p-size" id="p-size">
+                        <option value="">-select</option>
+                        <option value="S">Small ($9.99)</option>
+                        <option value="M">Medium ($12.99)</option>
+                        <option value="L">Large ($14.99)</option>
+                    </select>
+
+                <label for="o-cheeze">Cheeze options:</label>
+                    <select name="o-cheeze" id="o-cheeze">
+                        <option value="">-select</option>
+                        <option value="L">Light ($0.00)</option>
+                        <option value="N">Normal ($0.00)</option>
+                        <option value="E">Extra ($2.99)</option>
+                        <option value="D">Double ($3.99)</option>
+                    </select>
+                 <label for="o-sauce">Sauce options:</label>
+                    <select name="o-cheeze" id="o-cheeze">
+                        <option value="">-select</option>
+                        <option value="REG">RegularTomato ($0.00)</option>
+                        <option value="HEARTY">Hearty Tomato ($0.99)</option>
+                        <option value="BBQ">BBQ Sauce ($1.99)</option>
+                    </select>
+            </article>
+            <article>
+                <h2>Toppings</h2>
+                <p>Select the toppings. Each topping is $.99 extra. </p>
+
+                <div class="col2">
+                    <label for="c-pepperoni">Pepperoni</label>
+                    <input type="checkbox" name="toppings" value="pepperoni" id="c-pepperoni">
+
+                    <label for="c-sausage">Sausage</label>
+                    <input type="checkbox" name="toppings" value="sausage" id="c-sausage">
+
+                    <label for="c-ham">Ham</label>
+                    <input type="checkbox" name="toppings" value="ham" id="c-ham">
+
+                    <label for="c-bacon">Bacon</label>
+                    <input type="checkbox" name="toppings" value="bacon" id="c-bacon">
+
+                    <label for="c-salami">Salami</label>
+                    <input type="checkbox" name="toppings" value="salami" id="c-salami">
+
+                    <label for="c-peppers">Peppers</label>
+                    <input type="checkbox" name="toppings" value="peppers" id="c-peppers">
+                </div>
+
+                <div class="col2">
+                    <label for="c-olives">Olives</label>
+                    <input type="checkbox" name="toppings" value="olives" id="c-olives">
+
+                    <label for="c-jalapenos">Jalapenos</label>
+                    <input type="checkbox" name="toppings" value="jalapenos" id="jalapenos">
+
+                    <label for="c-mashrooms">Mashrooms</label>
+                    <input type="checkbox" name="toppings" value="mashrooms" id="c-mashrooms">
+
+                    <label for="c-pineapple">Pineapple</label>
+                    <input type="checkbox" name="toppings" value="pineapple" id="c-pineapple">
+
+                    <label for="c-onions">Onions</label>
+                    <input type="checkbox" name="toppings" value="onions" id="onions">
+
+                    <label for="c-spinach">Spinach</label>
+                    <input type="checkbox" name="toppings" value="spinach" id="spinach">
+                </div>
+
+            </article>
+            <div>
                     <p>
                         <label for="btn-estimate">Click to estimate:</label>
-                        <input type="submit" id="btn-estimate" value="Estimate total">
+                        <input type="submit" id="btn-estimate" value="Total">
                         <input type="text" placeholder="$0.00" id="txt-estimate">
                     </p>
                     <div id="results"></div>
-                </div>
-            </artcile>
-            <artcile id="state">
+            </div>
+            <artcile>
                 <h2>Special notes</h2>
                  <label for="msg">Comments</label>
                  <textarea name="message" id="msg" placeholder="please write your message here"></textarea>
 
             </artcile>
+            <article>
+                <h2>Billing Information</h2>
+                <p>Please select the method of payment</p>
+
+                 <div>
+                        <label for="r-card-visa">Visa</label>
+                        <br>
+                        <input type="radio" name="r_card" value="visa" id="r-card-visa">
+
+                        <label for="r-card-master">Master Card</label>
+                        <br>
+                        <input type="radio" name="r_card" value="master" id="r-card-master">
+
+                        <label for="r-card-ax">American Express</label>
+                        <br>
+                        <input type="radio" name="r_card" value="ax" id="r-card-ax">
+
+                </div>
+
+            </article>
+
             <article class="formBtn">
                 <input type="submit" class="button" value="Order!">
                 <input type="reset" class="button">

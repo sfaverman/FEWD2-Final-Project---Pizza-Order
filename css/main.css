@@ -65,6 +65,7 @@ a {
 a:hover {
     color: #9da40e;
 }
+/* loogo */
 img {
     float: right;
     width: 180px;
@@ -72,76 +73,8 @@ img {
     max-height: 100%;
     height: auto;
 }
-.tab-content {
-    clear: both;
-}
-.ready {
-    position: relative;
-    margin-bottom: 2em;
-}
-#tab-group.ready .tab-header {
-    font-weight: normal;
-    font-size: 13px;
-    text-transform: uppercase;
-    padding: .25em .5em;
 
-}
-.ready .tab-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    color: white;
-    background-color: #9da40e;
-    border: solid 1px #9da40e;
-    border-radius: 4px 4px 0 0;
-    z-index: 2;
-    cursor: pointer;
-}
-.ready .tab-header.active {
-    background-color: white;
-    border-bottom-color: white;
-    color: #9da40e;
-}
-.ready .tab-content {
-    position: relative;
-    top: 24px;
-    padding: 0 .5em;
-    border: solid 1px #9da40e;
-    border-radius: 0 0 6px 6px;
-    z-index: 1;
-    background-color: white;
-    display: none;
-}
-.ready .tab-content:after {
-    content: "\0200"; /* unicode for space */
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-.ready #tab-header-2 {
-    left: 14em;
-}
-.ready #tab-header-3 {
-    left: 26.1em;
-}
-.ready .tab-content p {
-    padding: 0.5em 0 1em;
-}
-.ready .tab-content {
-    display: none;
-}
-.ready .tab-content.active {
-    display: block;
-}
-.cart .info {
-    margin-bottom: .4em;
-}
-.cart .group {
-    margin-bottom: .5em;
-}
-.car #results {
+car #results {
     font-size: 93%;
     color: #777;
     min-width: 20em;
@@ -164,7 +97,7 @@ input:focus, select:focus, textarea:focus {
     background-color: lemonchiffon;
 
 }
-.button {
+.button, #btn-estimate {
     background: #9da40e;
     border: solid 1px #9da40e;
     border-radius: 5px;
@@ -174,6 +107,17 @@ input:focus, select:focus, textarea:focus {
     font-size: 100%;
     width: 20%;
 }
+#btn-estimate {
+    text-align: center;
+    margin-left: 2%;
+}
+#txt-estimate {
+   width: 50%;
+   margin-left: 5%;
+   border: solid 1px #951837;
+   padding: 5px;
+
+}
 .formBtn {
     display: flex;
     justify-content: space-between;
@@ -182,3 +126,12 @@ input:focus, select:focus, textarea:focus {
 .note {
     font-size: 0.9em;
 }
+/* display toppings in 2 rows */
+.col2 {
+    width: 50%;
+    float: left;
+}
+.clearIt {
+    clear: both;
+}
+

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Order - Form</title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script src="js/script.js" type="text/javascript" defer></script>
+     <script src="js/script.js" type="text/javascript" defer></script>
 </head>
 <body>
  <header>
@@ -26,7 +26,7 @@
                 <input type="text" id="name" name="name" autofocus>
                 <label for="a-type">Address Type:</label>
                     <select name="a-type" id="a-type">
-                        <option value="">-select</option>
+                        <option value="">- Please select -</option>
                         <option value="H">House</option>
                         <option value="A">Apartment</option>
                         <option value="B">Business</option>
@@ -35,6 +35,10 @@
                         <option value="D">Dorm</option>
                         <option value="O">Other</option>
                     </select>
+                <div id="otherOpt" style="display:none">
+                    <label for="other">Other Address Type:</label>
+                    <input type="text" id="other" name="other">
+                </div>
                 <label for="street">Street name*:</label>
                 <input type="text" id="street" name="street" >
                 <ul>
@@ -45,7 +49,7 @@
                     <li>
                         <label for="s-state">State:</label>
                         <select name="s-state" id="s-state">
-                            <option value="">-select</option>
+                            <option value="">- Please select -</option>
                             <option value="CA">California</option>
                             <option value="WA">Washington</option>
                             <option value="OR">Oregon</option>
@@ -63,7 +67,7 @@
 
 
                 <label for="phone">Phone*:</label>
-                <input type="tel" id="phone" name="phone" required placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
                 <p class="note">* indicated required field</p>
 
@@ -102,26 +106,26 @@
 
                 <label for="p-size">Pizza size:</label>
                     <select name="p-size" id="p-size">
-                        <option value="">-select</option>
-                        <option value="S">Small ($9.99)</option>
-                        <option value="M">Medium ($12.99)</option>
-                        <option value="L">Large ($14.99)</option>
+                        <option value="">- Please select -</option>
+                        <option value="9.99">Small ($9.99)</option>
+                        <option value="12.99">Medium ($12.99)</option>
+                        <option value="14.99">Large ($14.99)</option>
                     </select>
 
                 <label for="o-cheeze">Cheeze options:</label>
                     <select name="o-cheeze" id="o-cheeze">
-                        <option value="">-select</option>
-                        <option value="L">Light ($0.00)</option>
-                        <option value="N">Normal ($0.00)</option>
-                        <option value="E">Extra ($2.99)</option>
-                        <option value="D">Double ($3.99)</option>
+                        <option value="">- Please select -</option>
+                        <option value="0">Light ($0.00)</option>
+                        <option value="0">Normal ($0.00)</option>
+                        <option value="2.99">Extra ($2.99)</option>
+                        <option value="3.99">Double ($3.99)</option>
                     </select>
                  <label for="o-sauce">Sauce options:</label>
-                    <select name="o-cheeze" id="o-cheeze">
-                        <option value="">-select</option>
-                        <option value="REG">Regular Tomato ($0.00)</option>
-                        <option value="HEARTY">Hearty Tomato ($0.99)</option>
-                        <option value="BBQ">BBQ Sauce ($1.99)</option>
+                    <select name="o-sauce" id="o-sauce">
+                        <option value="">- Please select -</option>
+                        <option value="0.00">Regular Tomato ($0.00)</option>
+                        <option value="0.99">Hearty Tomato ($0.99)</option>
+                        <option value="1.99">BBQ Sauce ($1.99)</option>
                     </select>
             </article>
             <article>
@@ -169,6 +173,12 @@
                 </div>
 
             </article>
+            <artcile>
+                <h2>Special notes</h2>
+                 <label for="msg">Comments</label>
+                 <textarea name="message" id="msg" placeholder="Please write your message here"></textarea>
+
+            </artcile>
             <div>
                     <p>
                         <label for="btn-estimate">Click to estimate:</label>
@@ -177,13 +187,11 @@
                     </p>
                     <div id="results"></div>
             </div>
-            <artcile>
-                <h2>Special notes</h2>
-                 <label for="msg">Comments</label>
-                 <textarea name="message" id="msg" placeholder="please write your message here"></textarea>
+         </form>
 
-            </artcile>
-            <article>
+         <!-- Billing form -->
+         <form action="#" id="billingForm">
+         <article>
                 <h2>Billing Information</h2>
                 <p>Please select the method of payment</p>
 
@@ -208,7 +216,7 @@
                 <input type="submit" class="button" value="Order!">
                 <input type="reset" class="button">
             </article>
-     </form>
+        </form> <!-- end billing form -->
      </main>
  </section>
 

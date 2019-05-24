@@ -43,6 +43,9 @@ header h1 {
     border-radius: 15px 15px;
     position: relative;
 }
+#billingForm {
+    /*display: none;*/
+}
 h1 {
     color: #9da40e;
     margin-bottom: .25em;

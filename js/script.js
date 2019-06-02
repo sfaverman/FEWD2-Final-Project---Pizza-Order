@@ -6,22 +6,36 @@ var $ = function (id) {
 };
 
 var crustObj = {
-    hand: [
-        ['Small($9.99)',9.99],
-        ['Medium($12.99)',12.99],
-        ['Large($14.99)',14.99]
-        ],
-    thin: [
-        ['Medium($11.99)',11.99],
-        ['Large($13.99)',13.99]
-        ],
-    nys: [
-        ['Large($16.99)',16.99],
-        ['X-Large($19.99)',19.99]
-        ],
-    gluten: [
-        ['Small($10.99)',10.99]
-        ]
+	list: [
+		{
+		type: "hand",
+		opts: 	[
+			['Small($9.99)',9.99],
+			['Medium($12.99)',12.99],
+			['Large($14.99)',14.99]
+			]
+		},
+		{
+		type: "thin",
+		opts: [
+			['Medium($11.99)',11.99],
+			['Large($13.99)',13.99]
+			],
+		},
+		{
+		type: "nys",
+		opts: [
+			['Large($16.99)',16.99],
+			['X-Large($19.99)',19.99]
+			],
+		},
+		{
+		type: "gluten",
+		opts: [
+			['Small($10.99)',10.99]
+			]
+		}
+	]
 }
 
 window.addEventListener("load", function () {
@@ -147,7 +161,7 @@ function estimateOrder(event) {                                      "use strict
             if(crustList[i].checked == true) {
                 crust = crustList[i].value;
                 isCrustChecked = true;
-                sbreak;
+                break;
             }
         }
         if (!isCrustChecked) {
@@ -183,7 +197,7 @@ function estimateOrder(event) {                                      "use strict
     $('results').innerHTML = 'You ordered: Pizza <br>' +
         crust + ' crust, <br>'
         + $("p-size").options[$("p-size").selectedIndex].text
-        + ' size, ' + $("o-cheeze").options[$("o-cheeze").selectedIndex].text + 'cheeze,<br> with ' + numToppings + 't oppings: ' + checkedToppings ;
+        + ' size, ' + $("o-cheeze").options[$("o-cheeze").selectedIndex].text + ' cheeze,<br> with ' + numToppings + ' toppings: ' + checkedToppings ;
 
 
  } // end function estimateOrder
@@ -205,11 +219,27 @@ function estimateOrder(event) {                                      "use strict
        e.addEventListener("click", function() {
           /*alert(e.value);*/
           /*window.console.log('You selected ' + e.value + ' crust'); */
-         switch(e.value) {
+		   $("p-size").options.length = 1;
+		  var index;
+		  for(index in crustObj.list) {
+			  window.console.log(crustObj.list[index].type);
+			  if (e.value === crustObj.list[index].type)
+				for (var i = 0; i < crustObj.list[index].opts.length; i++) {
+			  	$("p-size").options[$("p-size").options.length] = new Option(crustObj.list[index].opts[i][0],crustObj.list[index].opts[i][1]);
+			  }
+		  }
+
+         /*switch(e.value) {
               case 'hand':  // if (x === 'value1')
-                window.console.log("you selected hand crust");
+                 window.console.log("you selected hand crust");
                  $("p-size").options.length = crustObj.hand.length + 1;
-                break;
+
+				 https://www.electrictoolbox.com/javascript-add-options-html-select/
+
+				 for (var i = 0; i < crustObj.hand.length; i++) {
+    					$("p-size").options[$("p-size").options.length] = new Option(crustObj.hand[i][0],crustObj.hand[i][1]);
+				 };
+                 break;
 
               case 'thin':  // if (x === 'value2')
                 window.console.log("you selected thin");
@@ -228,7 +258,7 @@ function estimateOrder(event) {                                      "use strict
 
               default:
                 window.console.log('invalid crust value');
-        }
+        }*/
 
        });
     });

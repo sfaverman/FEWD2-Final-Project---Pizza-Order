@@ -163,11 +163,13 @@ function estimateOrder(event) {                                      "use strict
                 isCrustChecked = true;
                 break;
             }
-        }
+        };
         if (!isCrustChecked) {
              $('crustVal').innerHTML = 'Please select crust type';
              $('r-dough-hand').focus();
-        }
+        } else {
+			 $('crustVal').innerHTML = "";
+		};
 
 
 
@@ -183,29 +185,39 @@ function estimateOrder(event) {                                      "use strict
       }
     }
 
-     window.console.log("You Selected:\n");
+   /*  window.console.log("You Selected:\n");
      window.console.log("Pizza crust: " + crust);
      window.console.log("Pizza size: " + $("p-size").text);
      window.console.log("Cheeze option: " + $("o-cheeze").text);
      window.console.log("Toppings: " + checkedToppings);
      window.console.log("Number of Toppings:" + numToppings);
-
+*/
     totalEstimate = Number($("p-size").value) + Number($("o-cheeze").value) + Number($("o-sauce").value) + (numToppings * 0.99);
 
     $('txt-estimate').value = '$' + totalEstimate.toFixed(2);
 
-    $('results').innerHTML = 'You ordered: Pizza <br>' +
-        crust + ' crust, <br>'
+    $('est-results').innerHTML = 'You selected:<br> Pizza: ' +
+        crust + ' crust, '
         + $("p-size").options[$("p-size").selectedIndex].text
-        + ' size, ' + $("o-cheeze").options[$("o-cheeze").selectedIndex].text + ' cheeze,<br> with ' + numToppings + ' toppings: ' + checkedToppings ;
+        + ' size, ' + $("o-cheeze").options[$("o-cheeze").selectedIndex].text + ' cheeze, with ' + numToppings + ' toppings: ' + checkedToppings ;
 
 
  } // end function estimateOrder
+
+ function submitOrder(event) {
+	 "use strict";
+
+    event.preventDefault(); //when you refresh, does not take you to the top of the page
+
+	 $('order-results').innerHTML = 'Thank you for your ORDER!<br> Your order will be delivered to you at <br>' +
+		$("street").value + ', ' + $("city").value + ', ' + $("s-state").value + ' ' + $("zip").value;
+ }
 
  /* EVENT LISTENERS */
 
  $("a-type").addEventListener("change", checkAddrTypeValue, false);
  $("pizza-form").addEventListener("submit", estimateOrder, false);
+ $("billing-form").addEventListener("submit", submitOrder, false);
 
 /* add event listener to choose your crust radio buttons */
   var radioOption = [
@@ -222,43 +234,12 @@ function estimateOrder(event) {                                      "use strict
 		   $("p-size").options.length = 1;
 		  var index;
 		  for(index in crustObj.list) {
-			  window.console.log(crustObj.list[index].type);
+			  // window.console.log(crustObj.list[index].type);
 			  if (e.value === crustObj.list[index].type)
 				for (var i = 0; i < crustObj.list[index].opts.length; i++) {
 			  	$("p-size").options[$("p-size").options.length] = new Option(crustObj.list[index].opts[i][0],crustObj.list[index].opts[i][1]);
 			  }
 		  }
-
-         /*switch(e.value) {
-              case 'hand':  // if (x === 'value1')
-                 window.console.log("you selected hand crust");
-                 $("p-size").options.length = crustObj.hand.length + 1;
-
-				 https://www.electrictoolbox.com/javascript-add-options-html-select/
-
-				 for (var i = 0; i < crustObj.hand.length; i++) {
-    					$("p-size").options[$("p-size").options.length] = new Option(crustObj.hand[i][0],crustObj.hand[i][1]);
-				 };
-                 break;
-
-              case 'thin':  // if (x === 'value2')
-                window.console.log("you selected thin");
-                 $("p-size").options.length = crustObj.thin.length + 1;
-                break;
-
-              case 'nys':  // if (x === 'value1')
-                window.console.log("you selected nys crust");
-                $("p-size").options.length = crustObj.nys.length + 1;
-                break;
-
-              case 'gluten':  // if (x === 'value2')
-                window.console.log("you selected glutten crust");
-                $("p-size").options.length = crustObj.gluten.length + 1;
-                break;
-
-              default:
-                window.console.log('invalid crust value');
-        }*/
 
        });
     });

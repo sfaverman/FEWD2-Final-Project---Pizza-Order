@@ -204,6 +204,100 @@ function estimateOrder(event) {                                      "use strict
 
  } // end function estimateOrder
 
+ function checkAccountNumValue() {
+     "use strict";
+     window.console.log('You entered account number' + $('acctNum').value);
+
+     /* Remove white spaces */
+     var acctNum = $('acctNum').value.replace(/\s+/g, '');
+     window.console.log('Your account number is ' + acctNum);
+
+     /* Validate credit card number by length */
+
+     window.console.log('Your account number has ' + acctNum.length + ' digits');
+     /* get a value of credit card radio button selected */
+     let ccTypeChecked = document.querySelector('input[name="r_card"]:checked');
+    if (ccTypeChecked != null) {
+         $('ccRadioVal').innerHTML = "";
+    }
+    else {
+         window.console.log('credit card type not selected');
+         $('ccRadioVal').innerHTML = 'Please select a credit card type';
+         $('r-card-visa').focus();
+        return;
+    }
+
+     var selCreditCard = document.querySelector('input[name="r_card"]:checked').value;
+
+     window.console.log('You selected ' + selCreditCard + ' credit card');
+
+     if(isNaN(acctNum)){
+         window.console.log('credit card not a numeric value : ' + acctNum);
+         $('acctNumVal').innerHTML = 'Invalid account number';
+         $('acctNum').focus();
+         return false;
+     } else {
+	     switch(selCreditCard) {
+               case "ax":
+                 if (acctNum.length !== 15 ||   acctNum.substring(0, 2) !== '37') {
+                      $('acctNumVal').innerHTML = 'Please enter a valid AX account number';
+                      $('acctNum').focus();
+                     return false;
+                 } else {
+                     $('acctNumVal').innerHTML = "";
+                 };
+                 break;
+               case "master":
+                  if (acctNum.length !== 16 ||   Number(acctNum.substring(0, 2)) < 51 ||
+                  Number(acctNum.substring(0, 2)) > 55) {
+                      $('acctNumVal').innerHTML = 'Please enter a valid Master card number';
+                      $('acctNum').focus();
+                     return false;
+                  } else {
+                     $('acctNumVal').innerHTML = "";
+                 }
+                 break;
+              case "visa":
+                 if ( (acctNum.length !== 13 &&                         acctNum.length !== 16)
+                    || acctNum.substring(0, 1) !== '4') {
+                   $('acctNumVal').innerHTML = 'Please enter a valid VISA credit card number';
+                      $('acctNum').focus();
+                     return false;
+                 } else {
+                     $('acctNumVal').innerHTML = "";
+                 };
+                 break;
+              default:
+                 window.console.log('unknown value of selCreditCard: ' + selCreditCard);
+         }
+     } // end if -else isNan(acctNum)
+      window.console.log('Checking Luhn Algorithm!');
+
+     // Validate according to Luhn Algorithm.
+ 	 var nCheck = 0, nDigit = 0, bEven = false;
+
+ 	 for (var n = acctNum.length - 1; n >= 0; n--) {
+ 	 var cDigit = acctNum.charAt(n),
+ 			  nDigit = parseInt(cDigit, 10);
+
+ 		if (bEven) {
+ 			if ((nDigit *= 2) > 9) nDigit -= 9;
+ 		}
+
+ 		nCheck += nDigit;
+ 		bEven = !bEven;
+ 	 }
+
+ 	 if ((nCheck % 10) !== 0) {
+         $('acctNumVal').innerHTML = 'Please enter a valid credit card number';
+         $('acctNum').focus();
+                     return false;
+         } else {
+             $('acctNumVal').innerHTML = "";
+             $('expDate').focus();
+         };
+ } // end checkAccountNumValue()
+
  function submitOrder(event) {
 	 "use strict";
 
@@ -217,7 +311,10 @@ function estimateOrder(event) {                                      "use strict
 
  $("a-type").addEventListener("change", checkAddrTypeValue, false);
  $("pizza-form").addEventListener("submit", estimateOrder, false);
+
+ $("acctNum").addEventListener("change", checkAccountNumValue, false);
  $("billing-form").addEventListener("submit", submitOrder, false);
+
 
 /* add event listener to choose your crust radio buttons */
   var radioOption = [

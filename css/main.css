@@ -114,11 +114,21 @@ form span {
     color: #fff;
     font-size: 100%;
     width: 20%;
+    min-width: 70px;
 }
 #btn-estimate {
     text-align: center;
     margin-left: 2%;
 }
+.button:hover, #btn-estimate:hover {
+    background: #d3e203;
+    color: #666;
+}
+.button:active, #btn-estimate:active {
+    background: #f95b2b;
+    color: lemonchiffon;
+}
+
 #txt-estimate {
    width: 50%;
    margin-left: 5%;
@@ -134,16 +144,20 @@ form span {
 .note {
     font-size: 0.9em;
 }
-/* display toppings in 2 rows */
-.col2 {
-    width: 49%;
-    float: left;
-	margin-right: 2%
-}
-.col2:last-of-type {
-	margin-right: 0;
-}
+
 .clearIt {
     clear: both;
+}
+
+@media screen and (min-width: 450px) {
+  /* display toppings in 2 rows */
+    .col2 {
+        width: 49%;
+        float: left;
+        margin-right: 2%
+    }
+    .col2:last-of-type {
+        margin-right: 0;
+    }
 }
 
